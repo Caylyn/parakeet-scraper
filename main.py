@@ -14,7 +14,7 @@ def main(*kwargs):
       buffer = ""
       for i in content.__next__().decode('utf-8'):
         buffer += i
-      buffer = re.split(r'Project Gutenberg(?:(?:\'s)|(?: EBook of)) ', buffer, maxsplit=1)[1]
+      buffer = re.split(r'Project Gutenberg(?:(?:\'s)|(?: (?:e|E)Book(?:,|(?: of)))) ', buffer, maxsplit=1)[1]
       title, buffer = re.split(r'\n', buffer, maxsplit=1)
       print(title)
       while len(buffer) > 0:
